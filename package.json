@@ -1,0 +1,20 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "social network api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyattlibby/social-network.git"
+  },
+  "author": "Brad libby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyattlibby/social-network/issues"
+  },
+  "homepage": "https://github.com/wyattlibby/social-network#readme"
+}
