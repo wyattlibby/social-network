@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/wyattlibby/social-network/issues"
   },
-  "homepage": "https://github.com/wyattlibby/social-network#readme"
+  "homepage": "https://github.com/wyattlibby/social-network#readme",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "mongoose": "^6.2.1"
+  }
 }
