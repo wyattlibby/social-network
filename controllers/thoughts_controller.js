@@ -2,18 +2,30 @@ const {Thoughts, Users} = require('../models');
 
 const thoughtsController = {
 
+    getThoughts(req, res) {
+        Thoughts.find()
+          .sort({ createdAt: -1 })
+          .then((dbThoughtData) => {
+            res.json(dbThoughtData);
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          });
+      },
+
     // Create a new thought
     createThoughts(req,res) {
         Thoughts.create(req.body)
-        .then(({_id}) => {
-            return Users.findOneAndUpdate({ _id: req.params.userId}, {$push: {thoughts: _id}}, {new: true});
+        .then(({dbData}) => {
+            return Users.findOneAndUpdate({ _id: req.body.userId}, {$push: {thoughts: dbData._id}}, {new: true});
         })
         .then(dbThoughtsData => {
             if(!dbThoughtsData) {
                 res.status(404).json({message: 'No thoughts with this ID'});
                 return;
             }
-            res.json(dbThoughtsData)
+            res.json({message:"thoughts succesfully created"});
         })
         .catch(err => res.json(err)); 
     },
